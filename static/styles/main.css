@@ -1,0 +1,151 @@
+body {
+    background-color: #E5E5E5;
+}
+
+.section--1 {
+    background-color: white;
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+
+.section--2 {
+    background-color: #E5E5E5;
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+
+.navigation-bar {
+    background-color: #1F2428;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-link {
+    color: #ffffff;
+    display: flex;
+}
+
+.hero {
+    background-color: #1F2428;
+    min-height: 70vh;
+}
+
+#profile_pic {
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.hero-content {
+    width: 800px;
+    margin: 0 auto;
+    padding-top: 3em;
+    color: #ffffff;
+
+}
+
+.hero-content--intro {
+    display: flex;
+    color: #ffffff;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    margin-bottom: 2em;
+}
+
+.intro--name {
+    font-size: 100px;
+    letter-spacing: .05em;
+    font-weight: 700;
+}
+
+.description {
+    font-size: 65px;
+    text-align: center;
+    margin-top: .5em;
+}
+
+.slogan {
+    font-size: 30px;
+    text-align: center;
+    margin-top: 2em;
+
+}
+
+.hero-content--subsection {
+
+}
+
+.projects--wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2em;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.project--column {
+}
+
+.project--thumbnail {
+    width: 100%;
+}
+
+.project--body {
+    background-color: white;
+    width: 100%;
+    padding: 1em;
+}
+
+.skills--container {
+    width: 550px;
+    margin: 0 auto;
+}
+
+.skill--wrapper {
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.other--skills--wrapper {
+    display: flex;
+    gap: 1em;
+
+
+}
+
+.skill--tag {
+    background-color: #C4E7F2;
+    width: fit-content;
+    padding: 3px 10px;
+    border-radius: 20px;
+}
+
+
+@media (max-width: 900px) {
+    .hero-content--intro {
+        flex-direction: column;
+    }
+    .hero-content{
+        width: 100%;
+    }
+
+    .projects--wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .slogan {
+        padding-bottom: 2em;
+    }
+}
+
+@media (max-width:600px) {
+    .skills--container{
+        width: 95%;
+    }
+    .hero-content{
+        width: 100%;
+    }
+}
