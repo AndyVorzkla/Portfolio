@@ -1,3 +1,5 @@
+import uuid
+
 from django.db.models import Q
 from django.shortcuts import render
 
@@ -16,3 +18,20 @@ def home_page(request):
     }
 
     return render(request, 'base/home.html', context=context)
+
+
+def project_page(request, pk: uuid):
+    try:
+        project = Project.objects.get(id=pk)
+    except Project.DoesNotExist:
+        project = None
+
+    context = {
+        'project': project,
+    }
+    return render(request, 'base/project.html', context=context)
+
+
+def create_project(request):
+    context = {}
+    return render(request, 'base/project_form.html', context=context)

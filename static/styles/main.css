@@ -21,9 +21,14 @@ body {
     justify-content: center;
 }
 
+
 .nav-link {
     color: #ffffff;
     display: flex;
+}
+
+.nav-link:hover {
+    color: #1F2428;
 }
 
 .hero {
@@ -87,16 +92,20 @@ body {
 }
 
 .project--column {
+    display: flex;
+    flex-direction: column;
 }
 
 .project--thumbnail {
     width: 100%;
+    margin-bottom: 15px;
 }
 
 .project--body {
     background-color: white;
     width: 100%;
     padding: 1em;
+    height: 100%;
 }
 
 .skills--container {
@@ -123,10 +132,19 @@ body {
     border-radius: 20px;
 }
 
+/*----Projects page elements----*/
+
+.project--image {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: red;
+}
+
+/*------------------------------*/
 
 @media (max-width: 900px) {
     .hero-content--intro {
-        flex-direction: column;
+    flex-direction: column;
     }
     .hero-content{
         width: 100%;
