@@ -29,7 +29,7 @@
 <section class="hero">
     <div class="hero-content">
         <div class="hero-content--intro">
-            <img id="profile_pic" src="{% static 'images/AA016A.jpg' %}">
+            <img id="profile_pic" src="{% static 'images/andy.jpg' %}">
             <h1 class="intro--name">Andrew <br> Shadrin</h1>
         </div>
         <div class="hero-content--subheadline">
@@ -43,27 +43,17 @@
     <h3>My Projects</h3>
     <h5>Projects that makes my journey worthwile</h5>
     <div class="projects--wrapper">
-        <div class="project--column">
-            <img class="project--thumbnail"
-                 src="https://techdocs.broadcom.com/content/dam/broadcom/techdocs/us/en/assets/docops/ccppmod151/ca_ppm_business_rewritten_by_software_full.png">
-            <div class="project--body">
-                <h5>Some text</h5>
+        {% for project in projects %}
+            <div class="project--column">
+                <img class="project--thumbnail"
+                     src="{{ project.thumbnail.url }}">
+                <div class="project--body">
+                    <h5>{{ project.body }}</h5>
+                </div>
             </div>
-        </div>
-        <div class="project--column">
-            <img class="project--thumbnail"
-                 src="https://techdocs.broadcom.com/content/dam/broadcom/techdocs/us/en/assets/docops/ccppmod151/ca_ppm_business_rewritten_by_software_full.png">
-            <div class="project--body">
-                <h5>Some text</h5>
-            </div>
-        </div>
-        <div class="project--column">
-            <img class="project--thumbnail"
-                 src="https://techdocs.broadcom.com/content/dam/broadcom/techdocs/us/en/assets/docops/ccppmod151/ca_ppm_business_rewritten_by_software_full.png">
-            <div class="project--body">
-                <h5>Some text</h5>
-            </div>
-        </div>
+        {% empty %}
+            <h3>There are not projects in a Database</h3>
+        {% endfor %}
     </div>
     <div class="about--wrapper">
         <h3>More About Me</h3>
@@ -79,38 +69,22 @@
 <section class="section--1">
     <div class="skills--container">
         <h3>Skills</h3>
+        {% for skill in detail_skills %}
+            <div class="skill--wrapper">
+                <h3>{{ skill.name }}</h3>
+                <p>{{ skill.body }}</p>
+            </div>
+        {% empty %}
+            <h3>This is no skills</h3>
+        {% endfor %}
 
-        <div class="skill--wrapper">
-            <h3>Python</h3>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-                scrambled it to make a type specimen book.</p>
-        </div>
-
-        <div class="skill--wrapper">
-            <h3>Django</h3>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-                scrambled it to make a type specimen book.</p>
-        </div>
-
-        <div class="skill--wrapper">
-            <h3>Docker</h3>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-                scrambled it to make a type specimen book.</p>
-        </div>
         <h5>Other skills</h5>
         <div class="other--skills--wrapper">
-            <div class="skill--tag">
-                <span>Heroku</span>
-            </div>
-            <div class="skill--tag">
-                <span>NGINX</span>
-            </div>
-            <div class="skill--tag">
-                <span>Docker</span>
-            </div>
+            {% for skill in skills %}
+                <div class="skill--tag">
+                    <span>{{ skill.name }}</span>
+                </div>
+            {% endfor %}
         </div>
     </div>
 </section>
