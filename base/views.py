@@ -4,6 +4,7 @@ from django.db.models import Q
 from django.shortcuts import render
 
 from base.models import Project, Skill
+from base.forms import ProjectForm
 
 
 def home_page(request):
@@ -32,6 +33,8 @@ def project_page(request, pk: uuid):
     return render(request, 'base/project.html', context=context)
 
 
-def create_project(request):
-    context = {}
+def add_project(request):
+    form = ProjectForm(label_suffix='')
+    context = {'form': form}
+
     return render(request, 'base/project_form.html', context=context)

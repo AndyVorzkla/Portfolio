@@ -1,8 +1,30 @@
 {% extends 'base/base.html' %}
 {% load static %}
 {% block content %}
-    <div class="container">
-        <h1>Project form</h1>
-    </div>
-
+    <section class="section-form-project">
+        <div class="form-area">
+            <h3>Project form</h3>
+            <form method="POST" enctype="multipart/form-data">
+{#                {% csrf_token %}#}
+                <div class="form-field">
+                    {{ form.title }}
+{#                    <input id="id_title" type="text" required>#}
+                    <span class="input-span"></span>
+                    {{ form.title.label_tag }}
+{#                    <label for="id_title">Title</label>#}
+                </div>
+                <div class="form-field">
+                    {{ form.body }}
+{#                    <textarea id="id_body"  required></textarea>#}
+                    <span class="textarea-span"></span>
+                    {{ form.body.label_tag }}
+{#                    <label for="id_body">Body</label>#}
+                </div>
+                <div class="form-field-button">
+                    {{ form.thumbnail }}
+                </div>
+                <input type="submit" value="Add">
+            </form>
+        </div>
+    </section>
 {% endblock content %}
