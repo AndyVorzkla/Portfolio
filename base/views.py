@@ -36,5 +36,10 @@ def project_page(request, pk: uuid):
 def add_project(request):
     form = ProjectForm(label_suffix='')
     context = {'form': form}
+    if request.method.lower() == 'post':
+        form = ProjectForm(request.POST, request.FILES)
+        print(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
 
     return render(request, 'base/project_form.html', context=context)

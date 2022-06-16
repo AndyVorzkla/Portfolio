@@ -5,26 +5,62 @@
         <div class="form-area">
             <h3>Project form</h3>
             <form method="POST" enctype="multipart/form-data">
-{#                {% csrf_token %}#}
+                {% csrf_token %}
                 <div class="form-field">
                     {{ form.title }}
-{#                    <input id="id_title" type="text" required>#}
+                    {#                    <input id="id_title" type="text" required>#}
                     <span class="input-span"></span>
                     {{ form.title.label_tag }}
-{#                    <label for="id_title">Title</label>#}
+                    {#                    <label for="id_title">Title</label>#}
                 </div>
                 <div class="form-field">
                     {{ form.body }}
-{#                    <textarea id="id_body"  required></textarea>#}
+                    {#                    <textarea id="id_body"  required></textarea>#}
                     <span class="textarea-span"></span>
                     {{ form.body.label_tag }}
 {#                    <label for="id_body">Body</label>#}
                 </div>
-                <div class="form-field-button">
-                    {{ form.thumbnail }}
+                <div class="form-field">
+                    {#                  accept = "mimetype" image для всех графических файлов #}
+                    <input type="file" name="thumbnail" accept="image/*" id="id_thumbnail" required>
+                    {{ form.thumbnail.label_tag }}
+                    <div class="image-preview" id="imagePreview">
+                        <img src="" alt="Image Preview" class="image-preview__image">
+                        <span class="image-preview__default-text">Image Preview</span>
+                    </div>
+                </div>
+                <div class="form-field">
+                    {{ form.tags }}
                 </div>
                 <input type="submit" value="Add">
             </form>
         </div>
     </section>
+    <script>
+        const inpFile = document.getElementById('id_thumbnail');
+        const previewContainer = document.getElementById('imagePreview');
+        const previewImage = previewContainer.querySelector(".image-preview__image")
+        const previewDefaultText = previewContainer.querySelector(".image-preview__default-text")
+
+        inpFile.addEventListener("change", function () {
+            const file = this.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+
+                previewDefaultText.style.display = 'none';
+                previewImage.style.display = "block";
+
+                reader.addEventListener('load', function () {
+                    previewImage.setAttribute("src", this.result);
+                });
+
+                reader.readAsDataURL(file);
+            } else {
+                previewDefaultText.style.display = null;
+                previewImage.style.display = null;
+                previewImage.setAttribute('srs', '')
+            }
+        })
+    </script>
 {% endblock content %}
