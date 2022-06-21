@@ -38,7 +38,6 @@ def add_project(request):
     context = {'form': form}
     if request.method.lower() == 'post':
         form = ProjectForm(request.POST, request.FILES)
-        print(request.POST, request.FILES)
         if form.is_valid():
             form.save()
 
