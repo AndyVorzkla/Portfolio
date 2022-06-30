@@ -100,13 +100,20 @@ body {
 .project--thumbnail {
     width: 100%;
     margin-bottom: 15px;
+
+
 }
+
 
 .project--body {
     background-color: white;
     width: 100%;
     padding: 1em;
     height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    /*box-shadow: #00363a;*/
+    box-shadow: 0 0 4px 2px #5d264b;
 }
 
 .skills--container {
@@ -135,13 +142,46 @@ body {
 
 /*----Projects page elements----*/
 
-.project-content .layout-back {
-    width: 100%;
-    height: 400px;
-    /*background-color: #4c69cc;*/
-    background-color: #a9b090;
+.project-detail{
+    min-height: 70vh;
+    background-color: #1F2428;
 }
 
+.project-content {
+    width: 800px;
+    height: 100vh;
+    margin: 0 auto;
+    color: #ffffff;
+    padding-top: 25px;
+}
+
+.project-content--intro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    margin-bottom: 2em;
+}
+
+
+
+.project-content--intro #project_pic {
+    height: 400px;
+    width: 400px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: #00363a solid 3px;
+}
+
+.project-content--intro .intro--title{
+    font-size: 70px;
+}
+
+.project-content--body {
+    font-size: 30px;
+    text-align: center;
+    margin-top: 2em;
+}
 /*----Projects form elements----*/
 
 .section-form-project {
@@ -334,6 +374,18 @@ body {
 
     .slogan {
         padding-bottom: 2em;
+    }
+    .project-content--intro {
+        flex-direction: column;
+    }
+
+    .project-content {
+        width: 100%;
+        text-align: center;
+    }
+
+    .project-content--body {
+        padding-top: 1fr;
     }
 }
 
